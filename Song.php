@@ -3,17 +3,17 @@
 $title = "On Melancholy Hill";
 $artist = "Gorillaz";
 $mood = "Melancholic";
-$by = $title . ', by' . $artist;
+$by = $title . ', by ' . $artist;  
 
 //Int
 $verseCount = 2;
-$repeatChorus = 4;
+$repeatChorus = 3;  // Slightly adjusted for demonstration, but not drastic
 
 //Array
-$nouns =["melancholy", "hill", "tree", "day", "dream",
+$nouns = ["melancholy", "hill", "tree", "day", "dream",
 "sea", "medicine", "submarines", "world",
 "manatee", "love"];
-$verbs =["up", "are", "looking", "get", "want", "can",
+$verbs = ["up", "are", "looking", "get", "want", "can",
 "set", "call", "go", "know", "come", "sits"];
 
 //Song lyrics
@@ -48,8 +48,11 @@ Ooh, ooh-ooh-ooh (Ah-ah)
 Ooh-ooh-ooh";
 
 //Making operators and putting the lyrics into arrays or composing into a song
-$total = $repeatChorus+ $verseCount;
-$lyrics = [$intro, $verse1_2, $interlude, $verse2_2,$outro];
+$total = $repeatChorus + $verseCount;
+$lyrics = [$intro, $verse1_2, $interlude, $verse2_2, $outro];
+
+// Labels for lyrics 
+$labels = ["[Intro]", "[Verse 1: 2-D]", "[Interlude]", "[Verse 2: 2-D]", "[Outro]"];
 
 ?>
 
@@ -68,7 +71,7 @@ title{font-size: 18px;}
 padding: 20px;
 width: 700px;
 border: 5px solid #ccc;
-background-color: #008e9b
+background-color: #008e9b;
 box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 float: center;
 margin: 0 auto;
@@ -79,7 +82,7 @@ margin: 0 auto;
 padding: 20px;
 width: 700px;
 border: 5px solid #ccc;
-background-color:#0089ba
+background-color:#0089ba;
 box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 float: center;
 margin: 0 auto;
@@ -116,23 +119,26 @@ body{
 
 </style>
     <div class=head>
-     <title ><?php echo $title?> </title>
+     <title><?php echo $title; ?></title>
     </head>
     <body>
-        <h1 href="https://www.youtube.com/watch?v=04mfKJWDSzI"><?php echo $title?> </h1>
+        <h1 href="https://www.youtube.com/watch?v=04mfKJWDSzI"><?php echo $title; ?></h1>
         <h2>On Melancholy Hill Lyrics</h2>
+        <?php
+        // Conditional statement: 
+        if ($mood == "Melancholic") {
+            echo "<p>This song evokes a melancholic mood.</p>";
+        }
+        ?>
         </div>
         <div class=body>
-        <p id="Intro">[Intro]</p>
-        <p><?php echo $lyrics[0]; ?></p>
-        <p>[Verse 1: 2-D]</p>
-        <p><?php echo $lyrics[1]; ?></p>
-        <p>[Interlude]</p>
-        <p><?php echo $lyrics[2]; ?></p>
-        <p>[Verse 2: 2-D]</p>
-        <p><?php echo $lyrics[3]; ?></p>
-        <p>[Outro]</p>
-        <p><?php echo $lyrics[4]; ?></p>
+        <?php
+        // Loop
+        for ($i = 0; $i < count($lyrics); $i++) {
+            echo "<p>" . $labels[$i] . "</p>";
+            echo "<p>" . $lyrics[$i] . "</p>";
+        }
+        ?>
     </body>
      </div>
 
