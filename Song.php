@@ -47,7 +47,7 @@ Ooh-ooh-ooh
 Ooh, ooh-ooh-ooh (Ah-ah)
 Ooh-ooh-ooh";
 
-//Making operators and putting the lyrics into arrays or composing into a song
+
 $total = $repeatChorus + $verseCount;
 $lyrics = [$intro, $verse1_2, $interlude, $verse2_2, $outro];
 
